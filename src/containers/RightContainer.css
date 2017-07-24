@@ -1,0 +1,7 @@
+.RightContainer {
+	padding: 15px;
+    order: 3;
+    flex: 1;
+    min-width: 315px;
+    max-width: 315px;
+}

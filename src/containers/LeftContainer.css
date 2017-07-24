@@ -1,0 +1,7 @@
+.LeftContainer {
+	padding: 30px 15px 15px 15px;
+    order: 1;
+    flex: 1;
+    min-width: 315px;
+    max-width: 315px;
+}

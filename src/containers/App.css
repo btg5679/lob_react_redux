@@ -1,0 +1,21 @@
+.header {
+	padding: 10px 0px 10px 0px;
+    background-color: #fff;
+}
+.header a {
+	margin: 0px 15px 0px 15px;
+} 
+
+
+.appContainer {
+	flex: 1 0 auto;
+	display: flex;
+	min-height: 100vh;
+	width: 100%;
+	background-color: #e6e6e6;
+}
+.mainContent {
+    padding: 15px;
+    order: 2;
+    flex: 2;
+}
