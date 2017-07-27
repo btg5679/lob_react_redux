@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <div>
         <header className="header">
-          <a href="/">Account Summary</a>
-          <a href="/about-us">Transfers</a>
+          <Link to="/">Account Summary</Link>
+          <Link to="/transfers">Transfers</Link>
         </header>
 
         <div className="appContainer">

@@ -30,8 +30,9 @@ const callApi = (endpoint, schema) => {
         if (!response.ok) {
           return Promise.reject(json)
         }
-
+        console.log('zzzresponse', json);
         const camelizedJson = camelizeKeys(json)
+        //const camelizedJson = camelizeKeys(json.accounts)
         const nextPageUrl = getNextPageUrl(response)
 
         return Object.assign({},
@@ -46,13 +47,7 @@ const callApi = (endpoint, schema) => {
 // JSON objects are replaced with their IDs. This is very convenient for
 // consumption by reducers, because we can easily build a normalized tree
 // and keep it updated as we fetch more data.
-
 // Read more about Normalizr: https://github.com/paularmstrong/normalizr
-
-// GitHub's API may return results with uppercase letters while the query
-// doesn't contain any. For example, "someuser" could result in "SomeUser"
-// leading to a frozen UI as it wouldn't find "someuser" in the entities.
-// That's why we're forcing lower cases down there.
 
 const userSchema = new schema.Entity('users', {}, {
   idAttribute: user => user.login.toLowerCase()
@@ -60,20 +55,12 @@ const userSchema = new schema.Entity('users', {}, {
 
 const acctSchema = new schema.Entity('accts')
 
-const repoSchema = new schema.Entity('repos', {
-  owner: userSchema
-}, {
-  idAttribute: repo => repo.fullName.toLowerCase()
-})
-
 // Schemas for Github API responses.
 export const Schemas = {
   USER: userSchema,
   USER_ARRAY: [userSchema],
   ACCT: acctSchema,
-  ACCT_ARRAY: [acctSchema],
-  REPO: repoSchema,
-  REPO_ARRAY: [repoSchema]
+  ACCT_ARRAY: [acctSchema]
 }
 
 // Action key that carries API call info interpreted by this Redux middleware.

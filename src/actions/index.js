@@ -22,6 +22,7 @@ export const loadAccounts = (id) => (dispatch, getState) => {
   [CALL_API]: {
     types: [ ACCOUNTS_REQUEST, ACCOUNTS_SUCCESS, ACCOUNTS_FAILURE ],
     endpoint:'accounts',
+    ////endpoint:'mockData.json',
     schema: Schemas.ACCT_ARRAY
   }
 })
