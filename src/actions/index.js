@@ -12,9 +12,7 @@ export const ACCOUNTS_FAILURE = 'ACCOUNTS_FAILURE'
 
 // Fetches accounts for a user from api.
 export const loadAccounts = (id) => (dispatch, getState) => {
-  console.log('zzzabouttofetchaccts')
   const accts = getState().entities.accts[id]
-  console.log('zzzabouttofetchaccts')
   return dispatch(fetchAccounts())
 }
 
@@ -136,6 +134,12 @@ export const loadStargazers = (fullName, nextPage) => (dispatch, getState) => {
 
   return dispatch(fetchStargazers(fullName, nextPageUrl))
 }
+
+// export const SET_SELECTED_ACCOUNT = 'SET_SELECTED_ACCOUNT'
+// export const setSelectedAccount = (selectedAccount) => ({
+//     selectedAccount,
+//     type: SET_SELECTED_ACCOUNT
+// })
 
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
 

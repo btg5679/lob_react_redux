@@ -5,35 +5,50 @@
         "accountDisplayName": "20170405TES...",
         "balance": "8,357.42",
         "type": "CD",
-        "isBusiness": false
+        "isBusiness": false,
+        "accountNumber": "619287372",
+        "annualPercentageRate": 1.46,
+        "status": "active"
       },
       {
         "id": "fd546fds564",
         "accountDisplayName": "IntSav1",
         "balance": "22.83",
         "type": "Savings",
-        "isBusiness": true
+        "isBusiness": true,
+        "accountNumber": "638238932",
+        "annualPercentageRate": 1.09,
+        "status": "active"
       },
       {
         "id": "798ew879ewr",
         "accountDisplayName": "IntSav2",
         "balance": "100.00",
         "type": "Savings",
-        "isBusiness": false
+        "isBusiness": false,
+        "accountNumber": "6356231630",
+        "annualPercentageRate": 0.65,
+        "status": "active"
       },
       {
         "id": "12fewr185ew",
         "accountDisplayName": "LOB Checking",
         "balance": "54,856.23",
         "type": "Checking",
-        "isBusiness": true
+        "isBusiness": true,
+        "accountNumber": "6392389230",
+        "annualPercentageRate": 1.99,
+        "status": "active"
       },
       {
         "id": "312dsf145ds",
         "accountDisplayName": "mmmSAVINGS",
         "balance": "22.84",
         "type": "Savings",
-        "isBusiness": false
+        "isBusiness": false,
+        "accountNumber": "63290820932",
+        "annualPercentageRate": 0.15,
+        "status": "active"
       }
   ]
 }

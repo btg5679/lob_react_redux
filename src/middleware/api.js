@@ -22,9 +22,7 @@ const LOCAL_API_ROOT = 'http://localhost:3001/'
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 const callApi = (endpoint, schema) => {
-  console.log('zzzendpoint', endpoint);
   const fullUrl = (endpoint.indexOf(LOCAL_API_ROOT) === -1) ? LOCAL_API_ROOT + endpoint : endpoint
-  console.log('zzzfullurl', fullUrl)
 
   return fetch(fullUrl)
     .then(response =>
@@ -35,8 +33,6 @@ const callApi = (endpoint, schema) => {
 
         const camelizedJson = camelizeKeys(json)
         const nextPageUrl = getNextPageUrl(response)
-        console.log('zzzschema', schema)
-        console.log('zzzjson', json)
 
         return Object.assign({},
           normalize(camelizedJson, schema)

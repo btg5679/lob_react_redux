@@ -1,0 +1,36 @@
+.account{
+	position: relative;
+	background: #fff;
+	cursor: pointer;
+	font-weight: 300;
+	border-top: 2px solid #ebebeb;
+	height: 60px;
+}
+.accountName {
+	top: 10px;
+    left: 15px;
+    position: absolute;
+    color: #6b6b6b;
+}
+.accountBalance {
+    top: 10px;
+    right: 15px;
+    text-align: right;
+    position: absolute;
+    color: #6b6b6b;
+}
+.accountType {
+	font-size: 10px;
+	top: 32px;
+    left: 15px;
+    position: absolute;
+    color: #6b6b6b;
+}
+.active {
+    border-top: solid 2px #3983c5;
+    background: rgba(57, 131, 197, 0.75);
+    width: 100%;
+    color: #fff;
+    z-index: 50;
+    font-weight: 400;
+}

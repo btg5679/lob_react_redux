@@ -1,28 +1,17 @@
-import * as ActionTypes from '../actions'
 import merge from 'lodash/merge'
 import paginate from './paginate'
+
+import * as ActionTypes from '../actions'
+
 import { routerReducer as routing } from 'react-router-redux'
 import { combineReducers } from 'redux'
 
+import selectedAccount from '../containers/AccountList/reducers'
+
 // Updates an entity cache in response to any action with response.entities.
-const entities = (state = { users: {}, repos: {}, accts: {}, selectedAccount: undefined }, action) => {
-  console.log('zzzentities reducer')
-  console.log('zzzaction', action)
+const entities = (state = { users: {}, repos: {}, accts: {} }, action) => {
   if (action.response && action.response.entities) {
     return merge({}, state, action.response.entities)
-  }
-
-  return state
-}
-
-// Updates error message to notify about the failed fetches.
-const errorMessage = (state = null, action) => {
-  const { type, error } = action
-
-  if (type === ActionTypes.RESET_ERROR_MESSAGE) {
-    return null
-  } else if (error) {
-    return error
   }
 
   return state
@@ -51,8 +40,8 @@ const pagination = combineReducers({
 const rootReducer = combineReducers({
   entities,
   pagination,
-  errorMessage,
-  routing
+  routing,
+  selectedAccount
 })
 
 export default rootReducer

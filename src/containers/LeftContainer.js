@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
 import './LeftContainer.css';
-//import AccountListContainer from '../../containers/AccountListContainer/AccountListContainer';
+import PropTypes from 'prop-types'
+import AccountList from '../containers/AccountList/AccountList'
+import { connect } from 'react-redux'
 
 
 class LeftContainer extends Component {
-
-	componentWillMount() {
-
+  
+	static propTypes = {
+		accts: PropTypes.object
 	}
 
-	componentWillReceiveProps(nextProps) {
 
+	componentWillReceiveProps(nextProps) {
+		this.props = nextProps
 	}
 
 	render() {
 		return(
 			<div className="LeftContainer">
-				FART
+				<div className="accountList">
+					<AccountList />
+				</div>
   			</div>
 		)
 	}
@@ -24,7 +29,13 @@ class LeftContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const {
+    entities: { accts }
+  } = state
+
+  return {
+  	accts: accts
+  }
 
 }
-
-export default LeftContainer
+export default connect(mapStateToProps)(LeftContainer)

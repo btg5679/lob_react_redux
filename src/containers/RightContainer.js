@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import './RightContainer.css';
-//import AccountListContainer from '../../containers/AccountListContainer/AccountListContainer';
 
 
 class RightContainer extends Component {
 
-	componentWillMount() {
-		
-	}
 
 	componentWillReceiveProps(nextProps) {
 
@@ -21,10 +17,6 @@ class RightContainer extends Component {
 			</div>
 		)
 	}
-
-}
-
-const mapStateToProps = (state, ownProps) => {
 
 }
 

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { loadAccounts }  from '../actions'
@@ -9,71 +7,54 @@ const GITHUB_REPO = 'https://github.com/reactjs/redux'
 
 class AccountSummary extends Component {
   static propTypes = {
-    id: PropTypes.string,
     accts: PropTypes.object,
     selectedAccount: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    loadAccounts: PropTypes.func.isRequired
+    loadAccounts: PropTypes.func.isRequired,
+    selectedAccountData: PropTypes.object
   }
 
   componentDidMount() {
-    console.log('zzzcdmalc')
-    const { dispatch, id } = this.props;
-    console.log('zzzaboutToLoadAccts')
     this.props.loadAccounts()
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('zzznextProps', nextProps)
     this.props = nextProps
-    console.log(this.props)
-    // if (nextProps.selectedAccount !== this.props.selectedAccount) {
-    //   this.setInputValue(nextProps.selectedAccount)
-    // }
+    this.selectedAccountData = this.setSelectedAcctData()
   }
 
-  getInputValue = () => {
-    return this.refs.input.selectedAccount
-  }
-
-  setInputValue = (val) => {
-    // Generally mutating DOM is a bad idea in React components,
-    // but doing this for a single uncontrolled field is less fuss
-    // than making it controlled and maintaining a state for it.
-    this.refs.input.selectedAccount = val
-  }
-
-  handleKeyUp = (e) => {
-    if (e.keyCode === 13) {
-      this.handleGoClick()
-    }
-  }
-
-  handleGoClick = () => {
-    this.props.onChange(this.getInputValue())
+  setSelectedAcctData() {
+    return this.props.accts[this.props.selectedAccount]
   }
 
   render() {
-    return (
-      <div>
-        <p>Account Name:</p>
-        <p>Available Balance:</p>
-        <p>Current Balance:</p>
-      </div>
-    )
+    if(this.selectedAccountData){
+      return (
+          <div>
+            <h3>Account Summary</h3>
+            <p>Account Name: {this.selectedAccountData.accountDisplayName}</p>
+            <p>Available Balance: {this.selectedAccountData.balance}</p>
+            <p>Account Type: {this.selectedAccountData.type}</p>
+            <p>Account Number: {this.selectedAccountData.accountNumber}</p>
+            <p>APR: {this.selectedAccountData.annualPercentageRate}</p>
+            <p>Status: {this.selectedAccountData.status}</p>
+          </div>
+          )
+      }else {
+        return (
+          <h3>No Account Selected</h3>
+        )
+      }
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    pagination: { stargazersByRepo },
-    entities: { accts }
+    entities: { accts },
+    selectedAccount
   } = state
 
-  const selectedAccount= state.selectedAccount
-
   return {
-    selectedAccount,
+    selectedAccount: selectedAccount,
     accts: accts
   }
 }
